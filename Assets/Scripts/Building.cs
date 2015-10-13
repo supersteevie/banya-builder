@@ -66,7 +66,24 @@ public class Building : MonoBehaviour {
 			{
 			//Check if building is already there
 			if(go.transform.position == transBuilding.transform.position)
+				{
 					isPlace = false;
+					break;
+				}
+			}
+
+			if(stage == 1)
+			{
+				foreach(GameObject go in listOfPlacedBuildings)
+				{
+					for(int i = 0; i <= Mathf.Abs(x); i ++)
+						for(int j = 0; j <= Mathf.Abs(z); j++)
+							if(go.transform.position == new Vector3(orgin.x - i * Mathf.Sign(x) , orgin.y, orgin.z - j * Mathf.Sign(z)))
+								{
+								isPlace = false;
+								break;
+								}
+				}
 			}
 		}
 
@@ -76,25 +93,16 @@ public class Building : MonoBehaviour {
 			GameObject clone = o;
 			//Place building
 			clone = (GameObject)Instantiate(o, transBuilding.transform.position, transBuilding.transform.rotation);
-			if(stage == 0)
-			{
-				orgin = clone.transform.position;
-				clone.AddComponent<LineRenderer>();
-				clone.GetComponent<LineRenderer>().SetVertexCount(5);
-				flagOne = clone;
-			}
-
-			isPlace = true;
 			if(stage == 1)
 			{
 				GameObject[] listOfFlags = GameObject.FindGameObjectsWithTag("Flag");
 				foreach(GameObject go in listOfFlags)
 					Destroy(go);
 
-				for(int i = 0; i < Mathf.Abs(x); i++)
-					for(int j = 0; j < Mathf.Abs(z); j++)
+				for(int i = 0; i <= Mathf.Abs(x); i ++)
+					for(int j = 0; j <= Mathf.Abs(z); j++)
 						{
-							clone = (GameObject)Instantiate(baseBuilding, new Vector3(orgin.x - i * Mathf.Sign(x) , orgin.y, orgin.z + j * Mathf.Sign(x)), transBuilding.transform.rotation);					
+							clone = (GameObject)Instantiate(baseBuilding, new Vector3(orgin.x - i * Mathf.Sign(x) , orgin.y, orgin.z - j * Mathf.Sign(z)), transBuilding.transform.rotation);					
 							listOfPlacedBuildings.Add(clone);
 						}
 				//Add to list
@@ -105,11 +113,19 @@ public class Building : MonoBehaviour {
 				transBuilding = null;
 				baseBuilding = null;
 			}
+
+			if(stage == 0)
+			{
+				orgin = clone.transform.position;
+				clone.AddComponent<LineRenderer>();
+				clone.GetComponent<LineRenderer>().SetVertexCount(5);
+				flagOne = clone;
+				stage++;
+			}
 		}
 		else
 			isPlace = true;
 
-		stage++;
 	}
 
 	//These methods are for the other programs to use
