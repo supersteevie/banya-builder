@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class KimanSpawner : MonoBehaviour {
 
-	public List<GameObject> listOfPlacedKimans = new List<GameObject>();
+	public static List<GameObject> listOfPlacedKimans = new List<GameObject>();
 	public float coolDown;
 	public GameObject basePrefab;
 
