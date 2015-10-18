@@ -13,6 +13,7 @@ public class BuildingAI : MonoBehaviour {
 	public int IncreaseHGR;
 	public int IncreaseTRF;
 	public int IncreaseTHG;
+	public int IncreaseAura;
 	
 	public bool IsMaleOnly { set; get; }
 	public bool IsSlidingDoor { set; get; }
@@ -31,6 +32,7 @@ public class BuildingAI : MonoBehaviour {
 		IncreaseHGR = BuildingBase.Get (name).IncreaseHGR;
 		IncreaseTRF = BuildingBase.Get (name).IncreaseTRF;
 		IncreaseTHG = BuildingBase.Get (name).IncreaseTHG;
+		IncreaseAura = BuildingBase.Get (name).IncreaseAura;
 
 	}
 
@@ -58,4 +60,9 @@ public class BuildingAI : MonoBehaviour {
 	{
 		return IncreaseTHG;
 	}
+	public int GetIncreaseAura()
+	{
+		return IncreaseACH + IncreaseAWE + IncreaseFUN + IncreaseHGR + IncreaseTRF + IncreaseTHG;
+	}
+
 }

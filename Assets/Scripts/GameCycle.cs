@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameCycle : MonoBehaviour {
 
@@ -59,7 +60,7 @@ public class GameCycle : MonoBehaviour {
 		//totalGuests = KimanSpawner.listOfPlacedKimans.GetRange();
 		dailyReport.SetActive(true);
 		string report = @"Great work! Here's the report for the day!
-	Number of Kiman: 	";
+	Number of Kiman: 	" + KimanSpawner.listOfPlacedKimans.Count;
 		popUp.text = report;
 	}
 }
