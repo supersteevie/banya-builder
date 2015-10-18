@@ -16,7 +16,8 @@ public class BuildingType
 		public int IncreaseFUN { get; set; }
 		public int IncreaseHGR { get; set; }
 		public int IncreaseTRF { get; set; }
-		public int IncreaseTHG { get; set;}
+		public int IncreaseTHG { get; set; }
+		public int IncreaseAura { get; set;}
 
         public bool IsMaleOnly { get; set; }
         public bool IsSlidingDoor { get; set; }

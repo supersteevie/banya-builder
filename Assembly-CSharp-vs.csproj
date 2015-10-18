@@ -56,11 +56,11 @@
      <Compile Include="Assets\Scripts\DailyReport.cs" />
      <Compile Include="Assets\Scripts\Databases\KimanGenerator.cs" />
      <Compile Include="Assets\Scripts\GameCycle.cs" />
+     <Compile Include="Assets\Scripts\GameMecahnics\BanyaRating.cs" />
+     <Compile Include="Assets\Scripts\GameMecahnics\RoomAura.cs" />
      <Compile Include="Assets\Scripts\KimanAI.cs" />
      <Compile Include="Assets\Scripts\KimanSpawner.cs" />
      <Compile Include="Assets\Scripts\Marketplace.cs" />
-     <Compile Include="Assets\Scripts\ParticleSpiralEffect.cs" />
-     <Compile Include="Assets\Scripts\RotateTornado.cs" />
      <Compile Include="Assets\Scripts\guiScripts\AboutBTN.cs" />
      <Compile Include="Assets\Scripts\guiScripts\BackButton1.cs" />
      <Compile Include="Assets\Scripts\guiScripts\BackButton2.cs" />
@@ -77,7 +77,6 @@
      <Compile Include="Assets\Scripts\guiScripts\TitleScreen.cs" />
      <Compile Include="Assets\Scripts\guiScripts\testGUI.cs" />
      <Compile Include="Assets\Scripts\kiman.cs" />
-     <Compile Include="Assets\Scripts\particleSpeed.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -26,28 +26,28 @@ public static class BuildingBase
             AddItem(new BuildingType
             {
                 Id = 1,
-                Name = "Male Locker Room",
-				Description = "A locker room to store personal items.",
+                Name = "Lounge",
+				Description = "A place where a Kiman can revitalize their mind.",
 				IsMaleOnly = true,
 				Width = 1,
 				Length = 1,
-				BasePrefab = Resources.Load("MaleLockerRoomBase", typeof(GameObject)) as GameObject,
-				TransPrefab = Resources.Load("MaleLockerRoomTrans", typeof(GameObject)) as GameObject,
-				Icon = Resources.Load("MaleLockerRoomIcon", typeof(Texture2D)) as Texture2D,
+				BasePrefab = Resources.Load("LoungeBase", typeof(GameObject)) as GameObject,
+				TransPrefab = Resources.Load("LoungeTrans", typeof(GameObject)) as GameObject,
+				Icon = Resources.Load("LoungeIcon", typeof(Texture2D)) as Texture2D,
 
             });
 
 			AddItem(new BuildingType
 			        {
 				Id = 2,
-				Name = "Female Locker Room",
-				Description = "A locker room to store personal items.",
+				Name = "Restaurant",
+				Description = "A place where a Kimans can revitalize their body.",
 				IsMaleOnly = false,
 				Width = 1,
 				Length = 1,
-				BasePrefab = Resources.Load("FemaleLockerRoomBase", typeof(GameObject)) as GameObject,
-				TransPrefab = Resources.Load("FemaleLockerRoomTrans", typeof(GameObject)) as GameObject,
-				Icon = Resources.Load("FemaleLockerRoomIcon", typeof(Texture2D)) as Texture2D,
+				BasePrefab = Resources.Load("RestaurantBase", typeof(GameObject)) as GameObject,
+				TransPrefab = Resources.Load("RestaurantTrans", typeof(GameObject)) as GameObject,
+				Icon = Resources.Load("RestaurantIcon", typeof(Texture2D)) as Texture2D,
 			});
 			
 			//Baths
@@ -55,15 +55,16 @@ public static class BuildingBase
 			AddItem(new BuildingType
 			        {
 				Id = 3,
-				Name = "Salt Scrub Sauna",
-				Description = "A Salt Scrub Sauna.",
+				Name = "Baths",
+			Description = "A place where a Kiman can revitalize their spirit.",
 				IncreaseAWE = 5,  
 				IncreaseACH = 5,
+				IncreaseAura = 10,
 				Width = 1,
 				Length = 1,
-				BasePrefab = Resources.Load("SaltScrubSaunaBase", typeof(GameObject)) as GameObject,
-				TransPrefab = Resources.Load("SaltScrubSaunaTrans", typeof(GameObject)) as GameObject,
-				Icon = Resources.Load("SaltScrubSauna", typeof(Texture2D)) as Texture2D,
+				BasePrefab = Resources.Load("BathsBase", typeof(GameObject)) as GameObject,
+				TransPrefab = Resources.Load("BathsTrans", typeof(GameObject)) as GameObject,
+				Icon = Resources.Load("BathsIcon", typeof(Texture2D)) as Texture2D,
 			});
 
 			AddItem(new BuildingType

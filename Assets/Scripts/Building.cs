@@ -17,6 +17,8 @@ public class Building : MonoBehaviour {
 	public float x;
 	public float z;
 
+	public static int buildingNo;
+
 	private GameObject flagOne;
 
 	void Update () 
@@ -104,6 +106,8 @@ public class Building : MonoBehaviour {
 						{
 							clone = (GameObject)Instantiate(baseBuilding, new Vector3(orgin.x - i * Mathf.Sign(x) , orgin.y, orgin.z - j * Mathf.Sign(z)), transBuilding.transform.rotation);					
 							listOfPlacedBuildings.Add(clone);
+							buildingNo = listOfPlacedBuildings.Count;
+
 						}
 				//Add to list
 				
