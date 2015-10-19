@@ -26,6 +26,8 @@ public static class BuildingBase
                 Id = 1,
                 Name = "Lounge",
                 Description = "A place where a Kiman can relax.",
+				auraTHG = 5,
+				buildingType = BuildingTypes.Mind,
 				BasePrefab = Resources.Load("LoungeBase", typeof(GameObject)) as GameObject,
 				TransPrefab = Resources.Load("LoungeTrans", typeof(GameObject)) as GameObject,
 				Icon = Resources.Load("LoungeIcon", typeof(Texture2D)) as Texture2D,
@@ -36,6 +38,8 @@ public static class BuildingBase
 			        {
 				Id = 2,
                 Name = "Restaurant",
+				auraACH = 5,
+				buildingType = BuildingTypes.Body,
                 Description = "A place where a Kiman can eat.",
 				BasePrefab = Resources.Load("RestaurantBase", typeof(GameObject)) as GameObject,
 				TransPrefab = Resources.Load("RestaurantTrans", typeof(GameObject)) as GameObject,
@@ -46,6 +50,8 @@ public static class BuildingBase
 			        {
 				Id = 3,
 				Name = "Baths",
+				auraAWE = 5,
+				buildingType = BuildingTypes.Spirit,
 			    Description = "A place where a Kiman can bathe.",
 				BasePrefab = Resources.Load("BathsBase", typeof(GameObject)) as GameObject,
 				TransPrefab = Resources.Load("BathsTrans", typeof(GameObject)) as GameObject,
@@ -56,6 +62,7 @@ public static class BuildingBase
             {
                 Id = 4,
                 Name = "Corridor",
+				buildingType = BuildingTypes.None,
                 Description = "A path or connection part",
                 BasePrefab = Resources.Load("BathsBase", typeof(GameObject)) as GameObject,
                 TransPrefab = Resources.Load("BathsTrans", typeof(GameObject)) as GameObject,

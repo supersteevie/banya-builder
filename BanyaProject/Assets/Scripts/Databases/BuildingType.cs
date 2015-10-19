@@ -11,13 +11,13 @@ public class BuildingType
 
         public string Name { get; set; }
         public string Description { get; set; }
-        public int IncreaseAWE { get; set; }
-		public int IncreaseACH { get; set; }
-		public int IncreaseFUN { get; set; }
-		public int IncreaseHGR { get; set; }
-		public int IncreaseTRF { get; set; }
-		public int IncreaseTHG { get; set; }
-		public int IncreaseAura { get; set;}
+		public BuildingTypes buildingType { get; set; } 
+        public int auraAWE { get; set; }
+		public int auraACH { get; set; }
+		public int auraFUN { get; set; }
+		public int auraHGR { get; set; }
+		public int auraTRF { get; set; }
+		public int auraTHG { get; set; }
 
 		public GameObject BasePrefab {get; set;}
 		public GameObject TransPrefab {get; set;}
@@ -25,3 +25,11 @@ public class BuildingType
 		public Texture2D Icon {get; set;}
    
  	}
+
+public enum BuildingTypes
+{
+	None,
+	Body,
+	Spirit,
+	Mind,
+}

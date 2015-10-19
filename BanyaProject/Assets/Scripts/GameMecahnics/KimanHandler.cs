@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class KimanSpawner : MonoBehaviour {
+public class KimanHandler : MonoBehaviour {
 
-	public static List<GameObject> listOfPlacedKimans = new List<GameObject>();
+	public static List<GameObject> listOfTotalKimans = new List<GameObject>();	
+	public static List<GameObject> listOfVisitedKimans = new List<GameObject>();
 	public float coolDown;
 	public GameObject basePrefab;
 
@@ -21,10 +22,11 @@ public class KimanSpawner : MonoBehaviour {
 		if(listOfPlacedBuildings.Length != 0)
 		{
 			coolDown -= Time.deltaTime;
-			if(coolDown <= 0 && listOfPlacedKimans.Count < 5)
+			if(coolDown <= 0 && listOfTotalKimans.Count < 5)
 			{
 				var clone = (GameObject)Instantiate(basePrefab, new Vector3(RandomSpawnLocation(20), 1, RandomSpawnLocation(20)), basePrefab.transform.rotation);
-				listOfPlacedKimans.Add(clone);
+				listOfTotalKimans.Add(clone);
+				listOfVisitedKimans.Add(clone);
 				coolDown = RandomBehavior(5);
 			}
 		}
@@ -43,6 +45,6 @@ public class KimanSpawner : MonoBehaviour {
 
 	public void RemoveKiman(GameObject go)
 	{
-		listOfPlacedKimans.Remove(go);
+		listOfTotalKimans.Remove(go);
 	}
 }

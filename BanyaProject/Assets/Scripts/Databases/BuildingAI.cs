@@ -7,60 +7,32 @@ public class BuildingAI : MonoBehaviour {
 	
 	public string Name;
 	public string Description;
-	public int IncreaseAWE;
-	public int IncreaseACH;
-	public int IncreaseFUN;
-	public int IncreaseHGR;
-	public int IncreaseTRF;
-	public int IncreaseTHG;
-	public int IncreaseAura;
-	
-	// Update is called once per frame
-	void Update () {
-	}
+	public BuildingTypes buildingType;
+	public int auraAWE;
+	public int auraACH;
+	public int auraTHG;
 
 	public void SetStats(string name)
 	{
 		Id = BuildingBase.Get (name).Id;
 		Name = name;
 		Description = BuildingBase.Get (name).Description;
-		IncreaseAWE = BuildingBase.Get (name).IncreaseAWE;
-		IncreaseACH = BuildingBase.Get (name).IncreaseACH;
-		IncreaseFUN = BuildingBase.Get (name).IncreaseFUN;
-		IncreaseHGR = BuildingBase.Get (name).IncreaseHGR;
-		IncreaseTRF = BuildingBase.Get (name).IncreaseTRF;
-		IncreaseTHG = BuildingBase.Get (name).IncreaseTHG;
-		IncreaseAura = BuildingBase.Get (name).IncreaseAura;
-
+		auraAWE = BuildingBase.Get (name).auraAWE;
+		auraACH = BuildingBase.Get (name).auraACH;
+		auraTHG = BuildingBase.Get (name).auraTHG;
+		buildingType = BuildingBase.Get (name).buildingType;
 	}
 
-	public int GetIncreaseAWE()
+	public int GetAuraAWE()
 	{
-		return IncreaseAWE;
+		return auraAWE;
 	}
-	public int GetIncreaseACH()
+	public int GetAuraACH()
 	{
-		return IncreaseACH;
+		return auraACH;
 	}
-	public int GetIncreaseFUN()
+	public int GetAuraTHG()
 	{
-		return IncreaseFUN;
+		return auraTHG;
 	}
-	public int GetIncreaseHGR()
-	{
-		return IncreaseHGR;
-	}
-	public int GetIncreaseTRF()
-	{
-		return IncreaseTRF;
-	}
-	public int GetIncreaseTHG()
-	{
-		return IncreaseTHG;
-	}
-	public int GetIncreaseAura()
-	{
-		return IncreaseACH + IncreaseAWE + IncreaseFUN + IncreaseHGR + IncreaseTRF + IncreaseTHG;
-	}
-
 }

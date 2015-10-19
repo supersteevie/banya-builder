@@ -141,12 +141,12 @@ public class KimanGenerator
 		Race = race[RandomNumber(0, 4)];
 		IsMale = (RandomNumber(0, 1)) > 0 ? false : true;
 		Age = RandomNumber(13, 91);
-		hgr = 50 + RandomNumber(0, 40);
-		ach = 50 + RandomNumber(0, 40);
-		trf = 50 + RandomNumber(0, 40);
-		tgh = 50 + RandomNumber(0, 40);
-		awe = 50 + RandomNumber(0, 40);
-		fun = 50 + RandomNumber(0, 40);
+		hgr = RandomNumber(1, 6);
+		ach = RandomNumber(1, 6);
+		trf = RandomNumber(1, 6);
+		tgh = RandomNumber(1, 6);
+		awe = RandomNumber(1, 6);
+		fun = RandomNumber(1, 6);
 		wallet = RandomNumber(100, 2001);
 		if (wallet <= 500)
 			wealthLevel = "Poor";
@@ -157,44 +157,44 @@ public class KimanGenerator
 		else
 			wealthLevel = "High Roller";
 		NameIndex = RandomNumber(0, 50);
-		if (Race == "Neo Columbian")
-		{
-			RaceOffset = 0;
-			hgr -= 5;
-			ach += 10;
-			trf -= 10;
-		 	awe += 10;
-			fun -= 10;
-		}
-
-		else if (Race == "Bulvanian")
-		{
-			RaceOffset = 100;
-			hgr += 10;
-			ach -= 5;
-			trf -= 5;
-			tgh += 10;
-			awe -= 5;
-			fun -= 5;
-		}
-
-		else if (Race == "Hanponese")
-		{
-			RaceOffset = 200;
-			hgr += 5;
-			trf -= 5;
-			tgh += 10;
-			awe -= 20;
-			fun += 5;
-		}
-
-		else 
-		{
-			RaceOffset = 300;
-			hgr -= 10;
-			tgh += 10;
-			fun -= 5;
-		}
+//		if (Race == "Neo Columbian")
+//		{
+//			RaceOffset = 0;
+//			hgr -= 5;
+//			ach += 10;
+//			trf -= 10;
+//		 	awe += 10;
+//			fun -= 10;
+//		}
+//
+//		else if (Race == "Bulvanian")
+//		{
+//			RaceOffset = 100;
+//			hgr += 10;
+//			ach -= 5;
+//			trf -= 5;
+//			tgh += 10;
+//			awe -= 5;
+//			fun -= 5;
+//		}
+//
+//		else if (Race == "Hanponese")
+//		{
+//			RaceOffset = 200;
+//			hgr += 5;
+//			trf -= 5;
+//			tgh += 10;
+//			awe -= 20;
+//			fun += 5;
+//		}
+//
+//		else 
+//		{
+//			RaceOffset = 300;
+//			hgr -= 10;
+//			tgh += 10;
+//			fun -= 5;
+//		}
 
 		if (!IsMale)
 			MaleNameOffset = 1;
