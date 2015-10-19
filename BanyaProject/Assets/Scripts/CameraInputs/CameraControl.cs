@@ -31,7 +31,9 @@ public class CameraControl : MonoBehaviour {
                     vertical = -(int)(touchDeltaPosition.y / 40);
                 }
 
-                if (transform.position.x > 20 || transform.position.x < -20)
+                if (Mathf.Abs(transform.position.x) + Mathf.Abs(transform.position.z + 15f) > digLength || Mathf.Abs(transform.position.x) + Mathf.Abs(transform.position.z - 15f) > digLength)
+                    vertical = 0;
+                if (Mathf.Abs(transform.position.x - 5f) + Mathf.Abs(transform.position.z) > digLength || Mathf.Abs(transform.position.x + 5f) + Mathf.Abs(transform.position.z) > digLength)
                     horizontal = 0;
 				transform.Translate(new Vector3(horizontal,0,vertical));
 
@@ -48,8 +50,11 @@ public class CameraControl : MonoBehaviour {
 
                     float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
-                    transform.FindChild("Main Camera").GetComponent<Camera>().orthographicSize += deltaMagnitudeDiff * .02f;
-                    transform.FindChild("Main Camera").GetComponent<Camera>().orthographicSize = Mathf.Max(transform.FindChild("Main Camera").GetComponent<Camera>().orthographicSize, 0.1f);
+                    if (transform.FindChild("Main Camera").GetComponent<Camera>().orthographicSize <= 10 && transform.FindChild("Main Camera").GetComponent<Camera>().orthographicSize >= 0)
+                    {
+                        transform.FindChild("Main Camera").GetComponent<Camera>().orthographicSize += deltaMagnitudeDiff * .02f;
+                        transform.FindChild("Main Camera").GetComponent<Camera>().orthographicSize = Mathf.Max(transform.FindChild("Main Camera").GetComponent<Camera>().orthographicSize, 0.1f);
+                    }
                 }
 
                 if (Input.GetAxis("Mouse ScrollWheel") < 0)
