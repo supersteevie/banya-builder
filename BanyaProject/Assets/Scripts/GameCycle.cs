@@ -8,16 +8,21 @@ public class GameCycle : MonoBehaviour {
 
 	public float dayLength;
 	public int weekLength;
-	public GameObject dailyReport;
 	private float banyaTime;
 	private float days;
-	public Text popUp;
+	public string report;
+
+	public GameObject dailyReport;
+	public Text dailyText;
+	public GameObject ratingReport;
+	public Text ratingText;
 
 	// Use this for initialization
 	void Start () {
 		banyaTime = Time.deltaTime;
 		dailyReport.SetActive(false);
-		days = 0;
+		ratingReport.SetActive(false);
+		days = 1;
 
 	}
 	
@@ -32,8 +37,9 @@ public class GameCycle : MonoBehaviour {
 	}
 
 	void CycleTime () {
-		if (!dailyReport.activeInHierarchy)
+		if (!dailyReport.activeInHierarchy && !ratingReport.activeInHierarchy) {
 			banyaTime += Time.deltaTime;
+		}
 	}
 
 	void CycleEnd () {
@@ -44,17 +50,26 @@ public class GameCycle : MonoBehaviour {
 			days++;
 			Debug.Log (days);
 		} else {
-			BanyaRating.RatingReport();
-			days = 0;
+			RatingReport();
+			days = 1;
 			banyaTime = Time.deltaTime;
 
 		}
 	}
 
+	//The daily report of the banya's stats
 	void DailyReport () {
 		dailyReport.SetActive(true);
-		string report = @"Great work! Here's the report for the day!
-	Number of Kiman: 	" + KimanHandler.listOfTotalKimans.Count;
-		popUp.text = report;
+		report = "Great work! Here's the report for the day!\r\n" +	"Number of Kiman: " + KimanHandler.listOfVisitedKimans.Count;
+		dailyText.text = report;
+	}
+
+	//Report showing star rating of bathhouse
+	void RatingReport (){
+		ratingReport.SetActive(true);
+		BanyaRating.CalculateRating ();
+		ratingText.text = BanyaRating.WeeklyReport(BanyaRating.starIncrease, BanyaRating.banyaStars, KimanHandler.listOfVisitedKimans.Count, BanyaRating.satisfaction);
+
+		
 	}
 }
