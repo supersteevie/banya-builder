@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
 public class BanyaRating : MonoBehaviour {
+
+	public GameObject inputReport;
+	public Text inputText; 
 
 	public static GameObject ratingReport;
 	public static Text ratingText; 
@@ -23,10 +26,13 @@ public class BanyaRating : MonoBehaviour {
 		starYes = "Congratulations! Your banya has gained a star!";
 		starNo = "Your banya did not gain any stars.";
 
-		weeklyReport = "@Here is how your banya is doing." +
+		weeklyReport = "Here is how your banya is doing." +
 			"Customer Satisfaction: " + satisfaction + "%" +
 				starIncrease +
-				"Your banya has " + banyaStars + ".";
+				"Your banya has " + banyaStars + " stars.";
+
+		ratingReport = inputReport;
+		ratingText = inputText;
 	}
 	
 	// Update is called once per frame

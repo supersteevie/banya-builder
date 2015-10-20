@@ -7,30 +7,15 @@ using System.Collections.Generic;
 public class GameCycle : MonoBehaviour {
 
 	public float dayLength;
+	public int weekLength;
 	public GameObject dailyReport;
 	private float banyaTime;
 	private float days;
-	//private int totalGuests;
 	public Text popUp;
-	//private Button closeReportBtn;
-	//private UnityEvent closeReport;
-
-	/*
-	public float BanyaTime
-	{
-		get
-		{
-			banyaTime += Time.deltaTime;
-			return banyaTime;
-		}
-	}
-	*/
 
 	// Use this for initialization
 	void Start () {
 		banyaTime = Time.deltaTime;
-		//popUp = GameObject.FindGameObjectWithTag("report");
-		//popUp = dailyReport.GetComponentInChildren<Text>();
 		dailyReport.SetActive(false);
 		days = 0;
 
@@ -52,31 +37,24 @@ public class GameCycle : MonoBehaviour {
 	}
 
 	void CycleEnd () {
-		if (days < 5) {
+		if (days < weekLength) {
 			DailyReport ();
 			Debug.Log (banyaTime);
 			banyaTime = Time.deltaTime;
 			days++;
+			Debug.Log (days);
 		} else {
 			BanyaRating.RatingReport();
 			days = 0;
+			banyaTime = Time.deltaTime;
 
 		}
 	}
 
 	void DailyReport () {
-		//totalGuests = KimanSpawner.listOfPlacedKimans.GetRange();
 		dailyReport.SetActive(true);
 		string report = @"Great work! Here's the report for the day!
 	Number of Kiman: 	" + KimanHandler.listOfTotalKimans.Count;
 		popUp.text = report;
 	}
 }
-
-/*
- * If cylce time >= 180 seconds
- * Then {
- * 		Pop up GUI reporting numbers
- * 		On GUI close
-
-	*/
