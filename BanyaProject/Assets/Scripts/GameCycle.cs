@@ -9,6 +9,7 @@ public class GameCycle : MonoBehaviour {
 	public float dayLength;
 	public GameObject dailyReport;
 	private float banyaTime;
+	private float days;
 	//private int totalGuests;
 	public Text popUp;
 	//private Button closeReportBtn;
@@ -31,6 +32,7 @@ public class GameCycle : MonoBehaviour {
 		//popUp = GameObject.FindGameObjectWithTag("report");
 		//popUp = dailyReport.GetComponentInChildren<Text>();
 		dailyReport.SetActive(false);
+		days = 0;
 
 	}
 	
@@ -50,10 +52,16 @@ public class GameCycle : MonoBehaviour {
 	}
 
 	void CycleEnd () {
-		DailyReport();
-		Debug.Log (banyaTime);
-		banyaTime = Time.deltaTime;
+		if (days < 5) {
+			DailyReport ();
+			Debug.Log (banyaTime);
+			banyaTime = Time.deltaTime;
+			days++;
+		} else {
+			BanyaRating.RatingReport();
+			days = 0;
 
+		}
 	}
 
 	void DailyReport () {
