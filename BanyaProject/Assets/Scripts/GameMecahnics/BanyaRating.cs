@@ -29,11 +29,12 @@ public class BanyaRating : MonoBehaviour {
 	}
 
 	public static string WeeklyReport(string si, int bs, int kc, float sf){
+
 		weeklyReport = si +
 			"Here's how your banya is doing...\r\n" +
 				bs + " Star Banya\r\n" +
 				"Total Kiman Guests: " + kc + "\r\n" +
-				"Satisfaction rating: " + sf + "%\r\n";
+				"Satisfaction rating: " + (int)sf + "%\r\n";
 		return weeklyReport;
 
 	}
@@ -46,17 +47,16 @@ public class BanyaRating : MonoBehaviour {
 	//calculates number of happy kiman and percentage of satisfied kiman
 	public static void HappyKimans (){
 		foreach (GameObject basePrefab in visitedKimans){
-			if (basePrefab.GetComponent<KimanAI>().joy >= 9){
+			if (basePrefab.GetComponent<KimanAI>().joy >= 5){
 				happyKimans++;
 			}
-			Debug.Log (happyKimans);
 		}
-		satisfaction = happyKimans / visitedKimans.Count * 100;
+		satisfaction = (float)happyKimans / (float)visitedKimans.Count * 100f;
 	}
 
 	//calculates banya star rating
 	public static void CalculateRating (){
-		HappyKimans ();
+		HappyKimans (); 
 
 		if (happyKimans >= visitedKimans.Count * .8) {
 			if (banyaStars < 5){
@@ -71,7 +71,6 @@ public class BanyaRating : MonoBehaviour {
 				else {
 					starIncrease = starNo;
 				}
-				Debug.Log(banyaStars);
 			}
 		}
 	}

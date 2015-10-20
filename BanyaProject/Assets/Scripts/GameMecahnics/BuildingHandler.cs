@@ -139,10 +139,14 @@ public class BuildingHandler : MonoBehaviour {
 		transBuilding = (GameObject)Instantiate(flagPole, transBuilding.transform.position, transBuilding.transform.rotation);
 	}
 
+	//out of date
 	public void SetTransObject(string go)
 	{
 		transBuilding = BuildingBase.Get (go).TransPrefab;
 	}
+
+	//This is to choose the building that you are building
+	//Needs to be set before TurnOnPlacing
 	public void SetBaseObject(string go)
 	{
 		baseBuilding = BuildingBase.Get (go).BasePrefab;

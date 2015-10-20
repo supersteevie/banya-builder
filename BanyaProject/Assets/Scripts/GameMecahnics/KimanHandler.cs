@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class KimanHandler : MonoBehaviour {
 
-	public static List<GameObject> listOfTotalKimans = new List<GameObject>();	
+	public static List<GameObject> listOfTotalKimans = new List<GameObject>();
 	public static List<GameObject> listOfVisitedKimans = new List<GameObject>();
 	public float coolDown;
 	public GameObject basePrefab;

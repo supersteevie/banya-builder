@@ -129,7 +129,6 @@ public class KimanAI : MonoBehaviour {
 			if(transform.position.x > 20 || transform.position.z > 20 || transform.position.x < -20 || transform.position.z < -20)
 			{
 				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<KimanHandler>().RemoveKiman(this.gameObject);
-				Destroy(this.gameObject);
 			}
 		}
 
