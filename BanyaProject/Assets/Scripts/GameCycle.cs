@@ -60,7 +60,7 @@ public class GameCycle : MonoBehaviour {
 	//The daily report of the banya's stats
 	void DailyReport () {
 		dailyReport.SetActive(true);
-		report = "Great work! Here's the report for the day!\r\n" +	"Number of Kiman: " + KimanHandler.listOfVisitedKimans.Count;
+		report = "Great work! Here's the report for the day!\r\n" +	"Number of Kiman: " + KimanHandler.listofKimanRecords.Count;
 		dailyText.text = report;
 	}
 
@@ -68,7 +68,7 @@ public class GameCycle : MonoBehaviour {
 	void RatingReport (){
 		ratingReport.SetActive(true);
 		BanyaRating.CalculateRating ();
-		ratingText.text = BanyaRating.WeeklyReport(BanyaRating.starIncrease, BanyaRating.banyaStars, KimanHandler.listOfVisitedKimans.Count, BanyaRating.satisfaction);
+		ratingText.text = BanyaRating.WeeklyReport(BanyaRating.starIncrease, BanyaRating.banyaStars, KimanHandler.listofKimanRecords.Count, BanyaRating.satisfaction);
 
 		
 	}

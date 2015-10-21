@@ -13,7 +13,7 @@ public class BanyaRating : MonoBehaviour {
 	public static string starIncrease;
 	public static string starNo;
 	public static string starYes;
-	public static List<GameObject> visitedKimans = KimanHandler.listOfVisitedKimans;
+	public static List<KimanRecord> visitedKimansRecords = KimanHandler.listofKimanRecords;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +23,7 @@ public class BanyaRating : MonoBehaviour {
 		weeklyReport = starIncrease +
 			"Here's how your banya is doing...\r\n" +
 				banyaStars + " Star Banya\r\n" +
-				"Total Kiman Guests: " + visitedKimans.Count + "\r\n" +
+				"Total Kiman Guests: " + visitedKimansRecords.Count + "\r\n" +
 				"Satisfaction rating: " + satisfaction + "%\r\n";
 		
 	}
@@ -46,25 +46,26 @@ public class BanyaRating : MonoBehaviour {
 
 	//calculates number of happy kiman and percentage of satisfied kiman
 	public static void HappyKimans (){
-		foreach (GameObject basePrefab in visitedKimans){
-			if (basePrefab.GetComponent<KimanAI>().joy >= 5){
+		happyKimans = 0;
+		foreach (KimanRecord kimanRecord in visitedKimansRecords){
+			if (kimanRecord.joy >= 5){
 				happyKimans++;
 			}
 		}
-		satisfaction = (float)happyKimans / (float)visitedKimans.Count * 100f;
+		satisfaction = (float)happyKimans / (float)visitedKimansRecords.Count * 100f;
 	}
 
 	//calculates banya star rating
 	public static void CalculateRating (){
 		HappyKimans (); 
 
-		if (happyKimans >= visitedKimans.Count * .8) {
+		if (happyKimans >= visitedKimansRecords.Count * .8) {
 			if (banyaStars < 5){
 				if (banyaStars <4){
 					banyaStars++;
 					starIncrease = starYes;
 				}
-				else if (visitedKimans.Count >= 500){
+				else if (visitedKimansRecords.Count >= 500){
 					banyaStars++;
 					starIncrease = starYes;
 				}

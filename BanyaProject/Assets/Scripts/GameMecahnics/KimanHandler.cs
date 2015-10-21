@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class KimanHandler : MonoBehaviour {
 
 	public static List<GameObject> listOfTotalKimans = new List<GameObject>();
-	public static List<GameObject> listOfVisitedKimans = new List<GameObject>();
+	public static List<KimanRecord> listofKimanRecords = new List<KimanRecord>();
 	public float coolDown;
 	public GameObject basePrefab;
 
@@ -26,7 +26,6 @@ public class KimanHandler : MonoBehaviour {
 			{
 				var clone = (GameObject)Instantiate(basePrefab, new Vector3(RandomSpawnLocation(20), 1, RandomSpawnLocation(20)), basePrefab.transform.rotation);
 				listOfTotalKimans.Add(clone);
-				listOfVisitedKimans.Add(clone);
 				coolDown = RandomBehavior(5);
 			}
 		}
@@ -46,5 +45,19 @@ public class KimanHandler : MonoBehaviour {
 	public void RemoveKiman(GameObject go)
 	{
 		listOfTotalKimans.Remove(go);
+		listofKimanRecords.Add(new KimanRecord
+		{
+			Id = go.GetComponent<KimanAI>().Id,
+			Name = go.GetComponent<KimanAI>().name,
+			ach = go.GetComponent<KimanAI>().ach,
+			tgh = go.GetComponent<KimanAI>().tgh,
+			awe = go.GetComponent<KimanAI>().awe,
+			wallet = go.GetComponent<KimanAI>().wallet,
+			Race = go.GetComponent<KimanAI>().Race,
+			joy = go.GetComponent<KimanAI>().joy,
+			mMood = go.GetComponent<KimanAI>().mMood,
+			sMood = go.GetComponent<KimanAI>().sMood,
+			bMood = go.GetComponent<KimanAI>().bMood,
+		});
 	}
 }

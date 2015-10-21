@@ -23,11 +23,11 @@ public class KimanAI : MonoBehaviour {
 	private int roomVisited;
 
 	// Ache is Body
-	private int ach;
+	public int ach;
 	// Thought is mind
-	private int tgh;
+	public int tgh;
 	// Awe is Spirit
-	private int awe;
+	public int awe;
 
 	//Moods
 	public int mMood = 1;
@@ -37,6 +37,8 @@ public class KimanAI : MonoBehaviour {
 	private bool mMoodVisited;
 	private bool sMoodVisited;
 	private bool bMoodVisited;
+
+	public int wallet;
 
 	//Joy
 	public int joy;
@@ -50,6 +52,7 @@ public class KimanAI : MonoBehaviour {
 		ach = kiman.ach;
 		tgh = kiman.tgh;
 		awe = kiman.awe;
+		wallet = kiman.wallet;
 	}
 	
 	// Update is called once per frame
@@ -129,6 +132,7 @@ public class KimanAI : MonoBehaviour {
 			if(transform.position.x > 20 || transform.position.z > 20 || transform.position.x < -20 || transform.position.z < -20)
 			{
 				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<KimanHandler>().RemoveKiman(this.gameObject);
+				Destroy(this.gameObject);
 			}
 		}
 
