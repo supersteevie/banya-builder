@@ -7,30 +7,22 @@ using System.Collections.Generic;
 public class GameCycle : MonoBehaviour {
 
 	public float dayLength;
-	public GameObject dailyReport;
+	public int weekLength;
 	private float banyaTime;
-	//private int totalGuests;
-	public Text popUp;
-	//private Button closeReportBtn;
-	//private UnityEvent closeReport;
+	private float days;
+	public string report;
 
-	/*
-	public float BanyaTime
-	{
-		get
-		{
-			banyaTime += Time.deltaTime;
-			return banyaTime;
-		}
-	}
-	*/
+	public GameObject dailyReport;
+	public Text dailyText;
+	public GameObject ratingReport;
+	public Text ratingText;
 
 	// Use this for initialization
 	void Start () {
 		banyaTime = Time.deltaTime;
-		//popUp = GameObject.FindGameObjectWithTag("report");
-		//popUp = dailyReport.GetComponentInChildren<Text>();
 		dailyReport.SetActive(false);
+		ratingReport.SetActive(false);
+		days = 1;
 
 	}
 	
@@ -45,30 +37,39 @@ public class GameCycle : MonoBehaviour {
 	}
 
 	void CycleTime () {
-		if (!dailyReport.activeInHierarchy)
+		if (!dailyReport.activeInHierarchy && !ratingReport.activeInHierarchy) {
 			banyaTime += Time.deltaTime;
+		}
 	}
 
 	void CycleEnd () {
-		DailyReport();
-		Debug.Log (banyaTime);
-		banyaTime = Time.deltaTime;
+		if (days < weekLength) {
+			DailyReport ();
+			Debug.Log (banyaTime);
+			banyaTime = Time.deltaTime;
+			days++;
+			Debug.Log (days);
+		} else {
+			RatingReport();
+			days = 1;
+			banyaTime = Time.deltaTime;
 
+		}
 	}
 
+	//The daily report of the banya's stats
 	void DailyReport () {
-		//totalGuests = KimanSpawner.listOfPlacedKimans.GetRange();
 		dailyReport.SetActive(true);
-		string report = @"Great work! Here's the report for the day!
-	Number of Kiman: 	" + KimanHandler.listOfTotalKimans.Count;
-		popUp.text = report;
+		report = "Great work! Here's the report for the day!\r\n" +	"Number of Kiman: " + KimanHandler.listofKimanRecords.Count;
+		dailyText.text = report;
+	}
+
+	//Report showing star rating of bathhouse
+	void RatingReport (){
+		ratingReport.SetActive(true);
+		BanyaRating.CalculateRating ();
+		ratingText.text = BanyaRating.WeeklyReport(BanyaRating.starIncrease, BanyaRating.banyaStars, KimanHandler.listofKimanRecords.Count, BanyaRating.satisfaction);
+
+		
 	}
 }
-
-/*
- * If cylce time >= 180 seconds
- * Then {
- * 		Pop up GUI reporting numbers
- * 		On GUI close
-
-	*/
