@@ -16,6 +16,7 @@ public class BuildingHandler : MonoBehaviour {
 	public int stage = 0;
 	public float x;
 	public float z;
+	public bool affordBuilding = false;
 
 	public static int buildingNo;
 
@@ -37,6 +38,8 @@ public class BuildingHandler : MonoBehaviour {
 			var currentPos = transBuilding.transform.position;	
 			//Snap to a grid
 			transBuilding.transform.position = new Vector3 (Mathf.Round (currentPos.x), 0.5F, Mathf.Round (currentPos.z));
+
+			affordBuilding = CurrencySystem.EnoughDux((int)(Mathf.Abs(x) * Mathf.Abs(z) * baseBuilding.GetComponent<BuildingAI> ().costPerSquare));
 
 			if(flagOne != null)
 			{
@@ -86,6 +89,7 @@ public class BuildingHandler : MonoBehaviour {
 								break;
 								}
 				}
+				isPlace = affordBuilding ? true : false;
 			}
 		}
 

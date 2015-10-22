@@ -31,6 +31,7 @@ public static class BuildingBase
 				BasePrefab = Resources.Load("LoungeBase", typeof(GameObject)) as GameObject,
 				TransPrefab = Resources.Load("LoungeTrans", typeof(GameObject)) as GameObject,
 				Icon = Resources.Load("LoungeIcon", typeof(Texture2D)) as Texture2D,
+				costPerSquare = 100,
 
             });
 
@@ -44,6 +45,7 @@ public static class BuildingBase
 				BasePrefab = Resources.Load("RestaurantBase", typeof(GameObject)) as GameObject,
 				TransPrefab = Resources.Load("RestaurantTrans", typeof(GameObject)) as GameObject,
 				Icon = Resources.Load("RestaurantIcon", typeof(Texture2D)) as Texture2D,
+				costPerSquare = 150,
 			});
 
 			AddItem(new BuildingType
@@ -56,6 +58,7 @@ public static class BuildingBase
 				BasePrefab = Resources.Load("BathsBase", typeof(GameObject)) as GameObject,
 				TransPrefab = Resources.Load("BathsTrans", typeof(GameObject)) as GameObject,
 				Icon = Resources.Load("BathsIcon", typeof(Texture2D)) as Texture2D,
+				costPerSquare = 150,
 			});
 
             AddItem(new BuildingType
@@ -66,6 +69,7 @@ public static class BuildingBase
                 Description = "A path or connection part",
 				BasePrefab = Resources.Load("CorridorBase", typeof(GameObject)) as GameObject,
 				TransPrefab = Resources.Load("CorridorBase", typeof(GameObject)) as GameObject,
+				costPerSquare = 50,
             });
 		}
 

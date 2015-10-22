@@ -147,12 +147,12 @@ public class KimanGenerator
 		tgh = RandomNumber(1, 6);
 		awe = RandomNumber(1, 6);
 		fun = RandomNumber(1, 6);
-		wallet = RandomNumber(100, 2001);
-		if (wallet <= 500)
+		wallet = RandomNumber(5, 20);
+		if (wallet <= 9)
 			wealthLevel = "Poor";
-		else if (wallet <= 1000)
+		else if (wallet <= 15)
 			wealthLevel = "Middle Class";
-		else if (wallet <= 1500)
+		else if (wallet <= 20)
 			wealthLevel = "Well Off";
 		else
 			wealthLevel = "High Roller";

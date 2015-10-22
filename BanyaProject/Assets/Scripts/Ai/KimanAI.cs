@@ -53,6 +53,7 @@ public class KimanAI : MonoBehaviour {
 		tgh = kiman.tgh;
 		awe = kiman.awe;
 		wallet = kiman.wallet;
+		CurrencySystem.Set (100);
 	}
 	
 	// Update is called once per frame
@@ -135,6 +136,7 @@ public class KimanAI : MonoBehaviour {
 			if(transform.position.x > 20 || transform.position.z > 20 || transform.position.x < -20 || transform.position.z < -20)
 			{
 				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<KimanHandler>().RemoveKiman(this.gameObject);
+				CurrencySystem.Set (joy / 6 * wallet);
 				Destroy(this.gameObject);
 			}
 		}
