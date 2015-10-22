@@ -18,6 +18,7 @@ public class BuildingType
 		public int auraHGR { get; set; }
 		public int auraTRF { get; set; }
 		public int auraTHG { get; set; }
+		public int costPerSquare { get; set; }
 
 		public GameObject BasePrefab {get; set;}
 		public GameObject TransPrefab {get; set;}

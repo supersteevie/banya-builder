@@ -11,6 +11,7 @@ public class BuildingAI : MonoBehaviour {
 	public int auraAWE;
 	public int auraACH;
 	public int auraTHG;
+	public int costPerSquare;
 
 	public void SetStats(string name)
 	{
@@ -21,6 +22,7 @@ public class BuildingAI : MonoBehaviour {
 		auraACH = BuildingBase.Get (name).auraACH;
 		auraTHG = BuildingBase.Get (name).auraTHG;
 		buildingType = BuildingBase.Get (name).buildingType;
+		costPerSquare = BuildingBase.Get (name).costPerSquare;
 	}
 
 	public int GetAuraAWE()
