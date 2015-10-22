@@ -71,8 +71,11 @@ public class KimanAI : MonoBehaviour {
 			else
 			{
 				targetBuilding = nextRoom();
-				targetLocation = targetBuilding.transform.position;
-				inTransit = true;
+				if(targetBuilding != null)
+				{
+					targetLocation = targetBuilding.transform.position;
+					inTransit = true;
+				}
 			}
 		}
 		if(!isLeaving)
@@ -156,23 +159,26 @@ public class KimanAI : MonoBehaviour {
 		foreach (GameObject go in listOfPlacedBuildings)
 		{
 			if(!mMoodVisited)
-				if(go.GetComponent<BuildingAI>().buildingType == BuildingTypes.Mind)
-					{
-							mMoodVisited = true;
-							return go;
-					}
+				if(go.GetComponent<BuildingAI>().buildingType != null)
+					if(go.GetComponent<BuildingAI>().buildingType == BuildingTypes.Mind)
+						{
+								mMoodVisited = true;
+								return go;
+						}
 			if(!bMoodVisited)
-				if(go.GetComponent<BuildingAI>().buildingType == BuildingTypes.Body)
-					{
-							bMoodVisited = true;
-							return go;
-					}
+				if(go.GetComponent<BuildingAI>().buildingType != null)
+					if(go.GetComponent<BuildingAI>().buildingType == BuildingTypes.Body)
+						{
+								bMoodVisited = true;
+								return go;
+						}
 			if(!sMoodVisited)
-				if(go.GetComponent<BuildingAI>().buildingType == BuildingTypes.Spirit)
-					{
-							sMoodVisited = true;
-							return go;
-					}
+				if(go.GetComponent<BuildingAI>().buildingType != null)
+					if(go.GetComponent<BuildingAI>().buildingType == BuildingTypes.Spirit)
+						{
+								sMoodVisited = true;
+								return go;
+						}
 		}
 		return null;
 	}

@@ -8,6 +8,10 @@ public class KimanHandler : MonoBehaviour {
 	public static List<KimanRecord> listofKimanRecords = new List<KimanRecord>();
 	public float coolDown;
 	public GameObject basePrefab;
+	public bool isMind;
+	public bool isBody;
+	public bool isSpirit;
+	public bool canSpawn = false;
 
 	void Start()
 	{
@@ -19,10 +23,28 @@ public class KimanHandler : MonoBehaviour {
 		Object[] listOfPlacedBuildings;
 		listOfPlacedBuildings = GameObject.FindGameObjectsWithTag("Building");
 
+
+
 		if(listOfPlacedBuildings.Length != 0)
 		{
+			foreach (GameObject go in listOfPlacedBuildings)
+			{
+				if(go.GetComponent<BuildingAI>().buildingType == BuildingTypes.Mind)
+				{
+					isMind = true;
+				}
+				if(go.GetComponent<BuildingAI>().buildingType == BuildingTypes.Body)
+				{
+					isBody = true;
+				}
+				if(go.GetComponent<BuildingAI>().buildingType == BuildingTypes.Spirit)
+				{
+					isSpirit = true;
+				}
+			}
+
 			coolDown -= Time.deltaTime;
-			if(coolDown <= 0 && listOfTotalKimans.Count < 5)
+			if(coolDown <= 0 && listOfTotalKimans.Count < 5 && isMind && isBody && isSpirit)
 			{
 				var clone = (GameObject)Instantiate(basePrefab, new Vector3(RandomSpawnLocation(20), 1, RandomSpawnLocation(20)), basePrefab.transform.rotation);
 				listOfTotalKimans.Add(clone);

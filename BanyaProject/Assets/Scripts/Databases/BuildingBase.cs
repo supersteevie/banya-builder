@@ -64,9 +64,8 @@ public static class BuildingBase
                 Name = "Corridor",
 				buildingType = BuildingTypes.None,
                 Description = "A path or connection part",
-                BasePrefab = Resources.Load("BathsBase", typeof(GameObject)) as GameObject,
-                TransPrefab = Resources.Load("BathsTrans", typeof(GameObject)) as GameObject,
-                Icon = Resources.Load("BathsIcon", typeof(Texture2D)) as Texture2D,
+				BasePrefab = Resources.Load("CorridorBase", typeof(GameObject)) as GameObject,
+				TransPrefab = Resources.Load("CorridorBase", typeof(GameObject)) as GameObject,
             });
 		}
 
