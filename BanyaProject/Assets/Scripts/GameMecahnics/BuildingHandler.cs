@@ -114,7 +114,7 @@ public class BuildingHandler : MonoBehaviour {
 
 						}
 				//Add to list
-				
+				CurrencySystem.Set((int)(Mathf.Abs(x) * Mathf.Abs(z) * -baseBuilding.GetComponent<BuildingAI> ().costPerSquare));
 				//Reset variables
 				isPlace = true;
 				placing = false;
